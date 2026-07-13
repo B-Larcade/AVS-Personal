@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVS • AI Verification Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* This is just an import for a better font But I did make fallback so different (Unseported)browsers would still have good looking fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+
+        .heading-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .hero-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #1e2937 100%);
+        }
+
+        .dark-red {
+            color: #991b1b;
+        }
+
+        .btn-red {
+            background-color: #991b1b;
+            transition: all 0.3s ease;
+        }
+
+        .btn-red:hover {
+            background-color: #7f1d1d;
+            transform: translateY(-2px);
+        }
+
+        .demo-card {
+            background: #1f2937;
+            border: 1px solid #334155;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-900">
+    <!-- Navigation System -->
+     <!-- I also need to make this have a cleaner look it just doesn't look like I want it to yet -->
+    <nav class="bg-white border-b sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-5">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-x-3">
+                    <div
+                        class="w-10 h-10 bg-[#991b1b] rounded-2xl flex items-center justify-center text-white text-3xl font-bold">
+                        A</div>
+                    <span class="heading-font text-3xl font-bold tracking-tighter">AVS</span>
+                </div>
+
+                <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
+                    <a href="#how" class="hover:text-[#991b1b]">How it Works</a>
+                    <a href="#features" class="hover:text-[#991b1b]">Features</a>
+                    <a href="#pricing" class="hover:text-[#991b1b]">Pricing</a>
+                    <a href="#about" class="hover:text-[#991b1b]">About</a>
+                </div>
+
+                <div class="flex items-center gap-x-4">
+                    <a href="signup.html" class="text-slate-600 hover:text-slate-900">Log in</a>
+                    <a href="signup.html" class="btn-red text-white px-6 py-3 rounded-3xl font-semibold">Get Started
+                        Free</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO Section -->
+    <header class="hero-bg text-white min-h-screen flex items-center">
+        <div class="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-16 items-center">
+            <div class="space-y-8">
+                <div
+                    class="inline-flex items-center gap-2 bg-slate-800/80 px-5 py-2 rounded-3xl text-sm border border-slate-600">
+                    <span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+                    Real-time AI Verification
+                </div>
+
+                <h1 class="heading-font text-6xl md:text-7xl font-semibold tracking-tighter leading-none">
+                    Verify Before You Believe
+                </h1>
+
+                <p class="text-xl text-slate-300 max-w-lg">
+                    AVS is your AI-powered verification assistant. Instantly check if information is true, where it came
+                    from, and whether you can trust it.
+                </p>
+
+                <div class="flex flex-wrap gap-4">
+                    <a href="signup.html"
+                        class="btn-red text-white px-8 py-4 rounded-3xl font-semibold flex items-center gap-x-3 text-lg">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        Try AVS Now
+                    </a>
+                    <button onclick="watchDemo()"
+                        class="border border-white/40 hover:bg-white/10 px-8 py-4 rounded-3xl font-medium flex items-center gap-x-3">
+                        <i class="fa-solid fa-play"></i>
+                        Watch Demo
+                    </button>
+                </div>
+
+                <div class="flex items-center gap-8 text-sm">
+                    <div class="flex items-center gap-x-2">
+                        <i class="fa-solid fa-check text-emerald-400"></i>
+                        <span>Trusted by students &amp; researchers</span>
+                    </div>
+                    <div class="flex items-center gap-x-2">
+                        <i class="fa-solid fa-check text-emerald-400"></i>
+                        <span>Voice alerts</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Demo Card For example -->
+            <div class="demo-card rounded-3xl p-8 shadow-2xl">
+                <div class="flex justify-between items-center mb-6">
+                    <div class="text-emerald-400 text-sm font-medium flex items-center gap-2">
+                        <span class="w-2 h-2 bg-current rounded-full"></span>
+                        Verified Source
+                    </div>
+                    <div class="bg-emerald-500/10 text-emerald-400 text-xs px-3 py-1 rounded-full">Voice Alert ON</div>
+                </div>
+
+                <div class="bg-slate-900 rounded-2xl p-6 mb-6">
+                    <p class="italic text-slate-300">"90% of businesses fail in the first year."</p>
+
+                    <div class="mt-8">
+                        <div class="flex justify-between text-sm mb-2">
+                            <span class="text-amber-400 font-medium">Low Confidence</span>
+                            <span class="font-mono">32%</span>
+                        </div>
+                        <div class="h-2 bg-slate-800 rounded-full overflow-hidden">
+                            <div class="h-2 w-[32%] bg-gradient-to-r from-amber-400 to-red-500"></div>
+                        </div>
+                    </div>
+
+                    <ul class="mt-6 space-y-3 text-sm">
+                        <li class="flex gap-3 text-red-400">
+                            <span>❌</span>
+                            <span>Statistic cannot be verified</span>
+                        </li>
+                        <li class="flex gap-3 text-amber-400">
+                            <span>⚠️</span>
+                            <span>Source reliability: Low</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <button onclick="fakeVerify()"
+                    class="w-full bg-blue-600 hover:bg-blue-700 py-4 rounded-2xl font-medium">
+                    Verify Another Claim
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- AVS Call to Action (Plesase leave this, these are important)-->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="heading-font text-5xl font-semibold tracking-tighter">What is AVS?</h2>
+            <p class="mt-6 text-lg text-slate-600">
+                AVS is an AI-powered verification assistant built to help people instantly verify information, sources,
+                citations, statistics, and AI-generated content.
+            </p>
+        </div>
+    </section>
+
+    <!-- PROBLEM (This is also very important on the phycology side)-->
+    <section class="py-20 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-center heading-font text-4xl font-semibold mb-12">The Problem We Solve</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-3xl">
+                    <h3 class="font-semibold text-xl mb-4">Misinformation &amp; Fake News</h3>
+                    <p class="text-slate-600">Deepfakes, misleading articles, and fabricated stories spread faster than
+                        truth.</p>
+                </div>
+                <div class="bg-white p-8 rounded-3xl">
+                    <h3 class="font-semibold text-xl mb-4">AI Hallucinations</h3>
+                    <p class="text-slate-600">AI systems generating confident but false information and citations.</p>
+                </div>
+                <div class="bg-white p-8 rounded-3xl">
+                    <h3 class="font-semibold text-xl mb-4">Unreliable Sources</h3>
+                    <p class="text-slate-600">Hard to know which sources and statistics to trust in today's digital
+                        world.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How this may work -->
+    <section id="how" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="heading-font text-5xl font-semibold">How AVS Works</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="text-center">
+                    <div
+                        class="mx-auto w-16 h-16 bg-slate-900 text-white rounded-3xl flex items-center justify-center text-3xl font-medium mb-6">
+                        1</div>
+                    <h3 class="font-semibold text-2xl mb-3">Submit Content</h3>
+                    <p class="text-slate-600">Paste text, link, or highlight content on any page.</p>
+                </div>
+                <div class="text-center">
+                    <div
+                        class="mx-auto w-16 h-16 bg-slate-900 text-white rounded-3xl flex items-center justify-center text-3xl font-medium mb-6">
+                        2</div>
+                    <h3 class="font-semibold text-2xl mb-3">AI Analysis</h3>
+                    <p class="text-slate-600">Checks sources, citations, statistics, and detects AI generation.</p>
+                </div>
+                <div class="text-center">
+                    <div
+                        class="mx-auto w-16 h-16 bg-slate-900 text-white rounded-3xl flex items-center justify-center text-3xl font-medium mb-6">
+                        3</div>
+                    <h3 class="font-semibold text-2xl mb-3">Instant Results</h3>
+                    <p class="text-slate-600">Get confidence score, explanation, and voice summary.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="py-20 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="heading-font text-5xl font-semibold text-center mb-16">Powerful Features</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-slate-800 p-8 rounded-3xl">
+                    <h3 class="font-semibold text-xl mb-3">Verify Page</h3>
+                    <p class="text-slate-400">Check the authenticity of any webpage in real-time.</p>
+                </div>
+                <div class="bg-slate-800 p-8 rounded-3xl">
+                    <h3 class="font-semibold text-xl mb-3">AI Text Agent</h3>
+                    <p class="text-slate-400">Analyzes content for misinformation and provides detailed reports.</p>
+                </div>
+                <div class="bg-slate-800 p-8 rounded-3xl">
+                    <h3 class="font-semibold text-xl mb-3">Instant Verification</h3>
+                    <p class="text-slate-400">Get accurate results in seconds.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prices -->
+    <section id="pricing" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="heading-font text-5xl font-semibold text-center mb-16">Simple Pricing</h2>
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="border rounded-3xl p-8">
+                    <h3 class="font-semibold text-2xl">Free</h3>
+                    <div class="text-4xl font-bold my-6">$0<span
+                            class="text-base font-normal text-slate-500">/month</span></div>
+                    <ul class="space-y-3 mb-10 text-slate-600">
+                        <li>Basic verification</li>
+                        <li>10 checks per month</li>
+                    </ul>
+                    <a href="signup.html"
+                        class="block text-center border border-slate-300 py-4 rounded-2xl font-medium">Get Started</a>
+                </div>
+                <div class="border-2 border-[#991b1b] rounded-3xl p-8 relative">
+                    <div class="absolute -top-3 right-6 bg-[#991b1b] text-white text-xs px-4 py-1 rounded-full">Popular
+                    </div>
+                    <h3 class="font-semibold text-2xl">Starter</h3>
+                    <div class="text-4xl font-bold my-6">$79<span
+                            class="text-base font-normal text-slate-500">/month</span></div>
+                    <ul class="space-y-3 mb-10 text-slate-600">
+                        <li>100,000 checks/month</li>
+                        <li>AI Text Agent</li>
+                        <li>Export reports</li>
+                    </ul>
+                    <a href="signup.html"
+                        class="block text-center bg-[#991b1b] text-white py-4 rounded-2xl font-medium">Upgrade Now</a>
+                </div>
+                <div class="border rounded-3xl p-8">
+                    <h3 class="font-semibold text-2xl">Enterprise</h3>
+                    <div class="text-4xl font-bold my-6">Custom</div>
+                    <ul class="space-y-3 mb-10 text-slate-600">
+                        <li>Unlimited everything</li>
+                        <li>Dedicated support</li>
+                    </ul>
+                    <a href="#contact"
+                        class="block text-center border border-slate-300 py-4 rounded-2xl font-medium">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer section -->
+    <footer class="bg-slate-950 text-slate-400 py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-10">
+                <div>
+                    <div class="flex items-center gap-x-3 text-white mb-4">
+                        <div class="w-9 h-9 bg-red-800 rounded-2xl flex items-center justify-center text-2xl font-bold">
+                            A</div>
+                        <span class="heading-font text-3xl font-bold">AVS</span>
+                    </div>
+                    <p>Building trust in the digital age.</p>
+                </div>
+                <div>
+                    <h4 class="font-medium text-white mb-4">Product</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#features" class="hover:text-white">Features</a></li>
+                        <li><a href="#how" class="hover:text-white">How it Works</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-medium text-white mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="hover:text-white">About</a></li>
+                        <li><a href="#" class="hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-medium text-white mb-4">Legal</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white">Privacy</a></li>
+                        <li><a href="#" class="hover:text-white">Terms</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-16 text-center text-xs border-t border-slate-800 pt-8">
+                © 2026 AVS. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function fakeVerify() {
+            alert("Demo: New claim would be verified here.");
+        }
+
+        function watchDemo() {
+            alert("Demo video would play here.");
+        }
+    </script>
+</body>
+
+</html>
